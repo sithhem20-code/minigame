@@ -622,18 +622,6 @@ restartBtn.onclick=function(){
 
 homeBtn.onclick=function(){
 
-    alert(
-    "🏠 Returning to Mini Games Hub"
-    );
-    window.location.href = "index.html";
-
-    // later connect this to your home page
-};
-
-// Home Button
-
-homeBtn.onclick=function(){
-
     window.location.href = "index.html";
 
 };
