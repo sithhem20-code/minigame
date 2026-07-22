@@ -167,3 +167,36 @@ footer button{
     width:45%;
 
 }
+.mobile-controls{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.mobile-controls div{
+    display:flex;
+    gap:10px;
+}
+
+.mobile-controls button{
+    width:70px;
+    height:70px;
+    font-size:30px;
+    border:none;
+    border-radius:15px;
+    background:#333;
+    color:white;
+}
+
+.mobile-controls button:active{
+    background:#555;
+}
+
+/* Hide on desktop */
+@media (min-width:768px){
+    .mobile-controls{
+        display:none;
+    }
+}

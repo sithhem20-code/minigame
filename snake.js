@@ -43,7 +43,43 @@ let paused = false;
 
 highScoreText.textContent = highScore;
 
+let startX = 0;
+let startY = 0;
 
+canvas.addEventListener("touchstart", function(e){
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+
+canvas.addEventListener("touchend", function(e){
+
+    let endX = e.changedTouches[0].clientX;
+    let endY = e.changedTouches[0].clientY;
+
+    let dx = endX - startX;
+    let dy = endY - startY;
+
+    if(Math.abs(dx) > Math.abs(dy)){
+
+        if(dx > 30 && direction.x !== -1){
+            nextDirection = {x:1,y:0};
+        }
+        else if(dx < -30 && direction.x !== 1){
+            nextDirection = {x:-1,y:0};
+        }
+
+    }else{
+
+        if(dy > 30 && direction.y !== -1){
+            nextDirection = {x:0,y:1};
+        }
+        else if(dy < -30 && direction.y !== 1){
+            nextDirection = {x:0,y:-1};
+        }
+
+    }
+
+});
 
 // Start / Restart Game
 
