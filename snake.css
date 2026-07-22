@@ -200,3 +200,6 @@ footer button{
         display:none;
     }
 }
+#gameCanvas {
+    touch-action: none;
+}
