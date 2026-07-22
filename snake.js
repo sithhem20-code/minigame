@@ -629,7 +629,13 @@ homeBtn.onclick=function(){
     // later connect this to your home page
 };
 
+// Home Button
 
+homeBtn.onclick=function(){
+
+    window.location.href = "index.html";
+
+};
 
 // Start
 
