@@ -606,6 +606,46 @@ document.addEventListener("keydown", function(e){
 
 
 });
+// ====================
+// Swipe Controls
+// ====================
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+canvas.addEventListener("touchstart", function (e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+canvas.addEventListener("touchend", function (e) {
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+
+    // Ignore tiny swipes
+    if (Math.abs(dx) < 30 && Math.abs(dy) < 30) return;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+        // Horizontal swipe
+        if (dx > 0 && direction.x !== -1) {
+            nextDirection = { x: 1, y: 0 };
+        } else if (dx < 0 && direction.x !== 1) {
+            nextDirection = { x: -1, y: 0 };
+        }
+    } else {
+        // Vertical swipe
+        if (dy > 0 && direction.y !== -1) {
+            nextDirection = { x: 0, y: 1 };
+        } else if (dy < 0 && direction.y !== 1) {
+            nextDirection = { x: 0, y: -1 };
+        }
+    }
+
+}, { passive: true });
 
 
 // Restart
